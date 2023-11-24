@@ -8,7 +8,6 @@ function guardarNumero(num){
     numA = numA + num.toString();
     screen.innerText = numA;
 
-    
 };
 
 function guardarOperacion(operacion){
@@ -24,17 +23,14 @@ function ejecutarOperacion(){
     numA = numA * 1;
 
     if (operation === '+'){
-        result = numB + numA
-
+        result = numA + numB
+        console.log(result)
     } else if(operation ==='-'){
-        result = numB - numA
-
+        result = numA - numB
     } else if(operation ==='*'){
-        result = numB * numA
-
+        result = numA * numB
     }else if(operation === '/'){
-        result = numB / numA
-
+        result = numa / numB
     }
     screen.innerText = result;
 }
@@ -54,19 +50,24 @@ let screen = document.querySelector('p')
 
 element.forEach( x => {
     if(x.className === 'button button--operand'){
-
         x.addEventListener("click",() => guardarNumero(x.value));
+    }
+});
 
-    } else if(x.className === 'button button--operator'){
-
+element.forEach( x => {
+    if(x.className === 'button button--operator'){
         x.addEventListener("click",() => guardarOperacion(x.value));
+    }
+});
 
-    } else if(x.className === 'button button--equal'){
-
+element.forEach( x => {
+    if(x.className === 'button button--equal'){
         x.addEventListener("click",() => ejecutarOperacion());
+    }
+});
 
-    } else if(x.className === 'button button--clear'){
-
+element.forEach( x => {
+    if(x.className === 'button button--clear'){
         x.addEventListener("click",() => borrarTodo());
     }
 });
